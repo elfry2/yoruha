@@ -8,7 +8,7 @@ router.post('/', function(req, res, next) {
 
   const exec = require('child_process').exec;
 
-  exec(req.body.command, (error, stdout, sterr) => {
+  exec(req.body.command, (error, stdout = null, stderr) => {
     if (
       !Object.hasOwn(req.body, 'token') ||
       tokens.indexOf(req.body.token) < 0
@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
       return
     }
 
-    res.send(stdout || stderr);
+    res.send(stdout || stderr || `"${req.body.command}" was executed but it returned nothing.`);
   });
 });
 
