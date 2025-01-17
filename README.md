@@ -1,5 +1,5 @@
 ﻿# yoruha
-A simple Express.js app to facilitate receiving shell commands over HTTP.
+A simple [Express.js](https://expressjs.com/) app to facilitate receiving shell commands over HTTP.
 
 # Installation
 ```bash
